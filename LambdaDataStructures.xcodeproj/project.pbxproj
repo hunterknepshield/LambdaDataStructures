@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		5ABC4BCF1DE63BCF00DB7841 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC4BCE1DE63BCF00DB7841 /* main.swift */; };
+		5ABC4BD61DE6420E00DB7841 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC4BD51DE6420E00DB7841 /* constants.swift */; };
+		5ABC4BD81DE6423000DB7841 /* list.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC4BD71DE6423000DB7841 /* list.swift */; };
+		5ABC4BDA1DE6425E00DB7841 /* tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC4BD91DE6425E00DB7841 /* tree.swift */; };
+		5ABC4BDC1DE6427000DB7841 /* set.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC4BDB1DE6427000DB7841 /* set.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +29,10 @@
 /* Begin PBXFileReference section */
 		5ABC4BCB1DE63BCF00DB7841 /* LambdaDataStructures */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LambdaDataStructures; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ABC4BCE1DE63BCF00DB7841 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		5ABC4BD51DE6420E00DB7841 /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
+		5ABC4BD71DE6423000DB7841 /* list.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = list.swift; sourceTree = "<group>"; };
+		5ABC4BD91DE6425E00DB7841 /* tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tree.swift; sourceTree = "<group>"; };
+		5ABC4BDB1DE6427000DB7841 /* set.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = set.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +66,10 @@
 			isa = PBXGroup;
 			children = (
 				5ABC4BCE1DE63BCF00DB7841 /* main.swift */,
+				5ABC4BD51DE6420E00DB7841 /* constants.swift */,
+				5ABC4BD71DE6423000DB7841 /* list.swift */,
+				5ABC4BDB1DE6427000DB7841 /* set.swift */,
+				5ABC4BD91DE6425E00DB7841 /* tree.swift */,
 			);
 			path = LambdaDataStructures;
 			sourceTree = "<group>";
@@ -121,6 +133,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5ABC4BCF1DE63BCF00DB7841 /* main.swift in Sources */,
+				5ABC4BDA1DE6425E00DB7841 /* tree.swift in Sources */,
+				5ABC4BD61DE6420E00DB7841 /* constants.swift in Sources */,
+				5ABC4BDC1DE6427000DB7841 /* set.swift in Sources */,
+				5ABC4BD81DE6423000DB7841 /* list.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
