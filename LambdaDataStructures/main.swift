@@ -7,7 +7,7 @@
 //
 
 
-// Lists.
+// List.
 // Built in reverse, from tail to head.
 
 var listHead = Node<String>.empty()
@@ -22,7 +22,7 @@ testCollection(listHead, elements: kElements)
 testCollection(oneShotList, elements: kElements)
 
 
-// Trees.
+// Tree.
 // Built in reverse, from leaves to root.
 
 // Leaves.
@@ -37,7 +37,7 @@ testCollection(btreeFoo, elements: kElements)
 testCollection(oneShotBtree, elements: kElements)
 
 
-// Sets.
+// Set.
 // Underlying list gets built in reverse, but we don't really care about order.
 
 var setHead = Node<String>.empty()
@@ -50,3 +50,28 @@ for string in kElements + ["foo"] {
 // A one-shot set would look just like the instantiation of oneShotList above.
 
 testCollection(setHead, elements: kElements)
+
+
+// Hash map.
+// This one is interesting - it associates keys and values and mutates the
+// parameter to the lambdas to "return" a value.
+
+var hashMapHead = Node<Container<String, Int>>.empty()
+for (index, string) in kElements.enumerated() {
+	// Resets hashMapHead to point to the newly created node.
+	hashMapHead = makeHashMapNode(string, index, tail: hashMapHead)
+}
+
+for (index, element) in kElements.enumerated() {
+	var found = Container<String, Int>(element)
+	assert(hashMapHead(found))
+	assert(found.value == index)
+}
+let notFound = Container<String, Int>("qux")
+assert(!hashMapHead(notFound))
+assert(notFound.value == nil)
+// The power of this construct is that we can specify whatever default value we
+// want. The default is nil, but we can force a different default value like so:
+let notFound2 = Container<String, Int>("qux", -1)
+assert(!hashMapHead(notFound2))
+assert(notFound2.value == -1)
