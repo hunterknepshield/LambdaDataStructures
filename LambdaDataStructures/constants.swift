@@ -15,19 +15,23 @@
 /// type is completely opaque to users. There is no way to determine things like
 /// the index of an element in a list of Nodes or the size of a collection of
 /// Nodes.
-typealias Node = (String) -> Bool
+struct Node<T: Equatable> {
+	typealias Lambda = (T) -> Bool
+	
+	/// The empty node always returns false, no matter the input.
+	static func empty() -> Lambda {
+		return { t in
+			return false
+		}
+	}
+}
 
 /// The typical elements all example collections are comprised of.
 let kElements = ["foo", "bar", "baz"]
 
-/// The empty node always returns false, no matter the input.
-let kEmptyNode: Node = { str in
-	return false
-}
-
 /// Asserts that all elements are in the given collection. Causes a runtime
 /// failure if that isn't the case.
-func testCollection(_ beginning: Node, elements: [String]) {
+func testCollection<T: Equatable>(_ beginning: Node<T>.Lambda, elements: [T]) {
 	for element in elements {
 		assert(beginning(element))
 	}

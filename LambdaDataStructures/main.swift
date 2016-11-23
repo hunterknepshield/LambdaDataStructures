@@ -10,7 +10,7 @@
 // Lists.
 // Built in reverse, from tail to head.
 
-var listHead = kEmptyNode
+var listHead = Node<String>.empty()
 for string in kElements.reversed() {
 	// Resets listHead to point to the newly created node.
 	listHead = makeListNode(string, tail: listHead)
@@ -40,7 +40,7 @@ testCollection(oneShotBtree, elements: kElements)
 // Sets.
 // Underlying list gets built in reverse, but we don't really care about order.
 
-var setHead = kEmptyNode
+var setHead = Node<String>.empty()
 // The additional "foo" element does nothing, since it's already in the set by
 // the time we get to it.
 for string in kElements + ["foo"] {
@@ -50,4 +50,3 @@ for string in kElements + ["foo"] {
 // A one-shot set would look just like the instantiation of oneShotList above.
 
 testCollection(setHead, elements: kElements)
-

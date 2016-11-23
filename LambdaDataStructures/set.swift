@@ -7,7 +7,7 @@
 //
 
 /// Makes a potentially new Node that acts as the beginning of a set. Uses a list as the underlying storage mechanism.
-func makeSetNode(_ head: String, tail: @escaping Node = kEmptyNode) -> Node {
+func makeSetNode<T: Equatable>(_ head: T, tail: @escaping Node<T>.Lambda = Node<T>.empty()) -> Node<T>.Lambda {
 	if (tail(head)) {
 		// This set already contains this element, don't add anything new.
 		return tail

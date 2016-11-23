@@ -14,8 +14,8 @@
 ///
 /// This mirrors Lisp's operations:
 /// (cons a (cons b (cons c nil)))
-func makeListNode(_ head: String, tail: @escaping Node = kEmptyNode) -> Node {
-	return { string in
-		string == head || tail(string)
+func makeListNode<T: Equatable>(_ head: T, tail: @escaping Node<T>.Lambda = Node<T>.empty()) -> Node<T>.Lambda {
+	return { t in
+		t == head || tail(t)
 	}
 }
