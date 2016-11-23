@@ -54,7 +54,7 @@ testCollection(setHead, elements: kElements)
 
 // Hash map.
 // This one is interesting - it associates keys and values and mutates the
-// parameter to the lambdas to "return" a value.
+// parameter to the nodes to "return" a value.
 
 var hashMapHead = Node<Container<String, Int>>.empty()
 for (index, string) in kElements.enumerated() {
