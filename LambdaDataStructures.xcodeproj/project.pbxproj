@@ -12,6 +12,7 @@
 		5ABC4BD81DE6423000DB7841 /* list.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC4BD71DE6423000DB7841 /* list.swift */; };
 		5ABC4BDA1DE6425E00DB7841 /* tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC4BD91DE6425E00DB7841 /* tree.swift */; };
 		5ABC4BDC1DE6427000DB7841 /* set.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC4BDB1DE6427000DB7841 /* set.swift */; };
+		5ABC4BDE1DE654C400DB7841 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC4BDD1DE654C400DB7841 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +34,7 @@
 		5ABC4BD71DE6423000DB7841 /* list.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = list.swift; sourceTree = "<group>"; };
 		5ABC4BD91DE6425E00DB7841 /* tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tree.swift; sourceTree = "<group>"; };
 		5ABC4BDB1DE6427000DB7841 /* set.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = set.swift; sourceTree = "<group>"; };
+		5ABC4BDD1DE654C400DB7841 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +51,7 @@
 		5ABC4BC21DE63BCF00DB7841 = {
 			isa = PBXGroup;
 			children = (
+				5ABC4BDD1DE654C400DB7841 /* README.md */,
 				5ABC4BCD1DE63BCF00DB7841 /* LambdaDataStructures */,
 				5ABC4BCC1DE63BCF00DB7841 /* Products */,
 			);
@@ -132,6 +135,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ABC4BDE1DE654C400DB7841 /* README.md in Sources */,
 				5ABC4BCF1DE63BCF00DB7841 /* main.swift in Sources */,
 				5ABC4BDA1DE6425E00DB7841 /* tree.swift in Sources */,
 				5ABC4BD61DE6420E00DB7841 /* constants.swift in Sources */,
