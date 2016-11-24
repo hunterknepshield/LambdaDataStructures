@@ -1,5 +1,5 @@
 //
-//  constants.swift
+//  node.swift
 //  LambdaDataStructures
 //
 //  Created by Hunter Knepshield on 11/23/16.
@@ -28,9 +28,6 @@ struct Node<T: Equatable> {
 		}
 	}
 }
-
-let x = Node<String>.nil()
-
 
 /// The typical elements all example collections are comprised of.
 let kElements = ["foo", "bar", "baz"]
