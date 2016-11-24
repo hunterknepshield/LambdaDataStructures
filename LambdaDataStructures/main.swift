@@ -75,3 +75,10 @@ assert(notFound.value == nil)
 let notFound2 = Container<String, Int>("qux", -1)
 assert(!hashMapHead(notFound2))
 assert(notFound2.value == -1)
+// We can also update a mapping like so:
+let updatedFoo = Container<String, Int>("foo", 999)
+assert(hashMapHead(updatedFoo))  // This overwrites the old "foo" -> 0 mapping
+assert(updatedFoo.value == 999)  // Didn't get overwritten
+let newFooMapping = Container<String, Int>("foo")  // value == nil
+assert(hashMapHead(newFooMapping))  // This overwrites newFooMapping.value
+assert(newFooMapping.value == updatedFoo.value)

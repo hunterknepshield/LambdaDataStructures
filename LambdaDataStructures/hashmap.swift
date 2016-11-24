@@ -18,26 +18,32 @@ class Container<K: Equatable, V>: Equatable {
 	}
 }
 
-// To satisfy Equatable.
+/// To satisfy Equatable, required by Node's type parameter.
 func ==<K: Equatable, V>(lhs: Container<K, V>, rhs: Container<K, V>) -> Bool {
 	return lhs.key == rhs.key
 }
 
+/// See makeHashMapNode(head:Container, tail: Node.Lambda).
 func makeHashMapNode<K: Equatable, V>(_ key: K?, _ value: V?, tail: @escaping Node<Container<K, V>>.Lambda = Node<Container<K, V>>.empty()) -> Node<Container<K, V>>.Lambda {
 	return makeHashMapNode(Container(key, value), tail: tail)
 }
 
+/// See makeHashMapNode(head:Container, tail: Node.Lambda).
 func makeHashMapNode<K: Equatable, V>(_ head: (K?, V?), tail: @escaping Node<Container<K, V>>.Lambda = Node<Container<K, V>>.empty()) -> Node<Container<K, V>>.Lambda {
 	return makeHashMapNode(Container(head.0, head.1), tail: tail)
 }
 
+/// If the given key is not already in the data structure, this function returns
+/// a Node that accepts a Container. A few different behaviors result:
+/// If keys match, but the supplied container's value is not nil, then this
+///		Node's value gets updated with the new value.
+/// If keys match and the supplied container's value is nil, then it is
+///		mutated to "return" the existing value in this node.
+/// If keys do not match, defers functionality to the tail.
 func makeHashMapNode<K: Equatable, V>(_ head: Container<K, V>, tail: @escaping Node<Container<K, V>>.Lambda = Node<Container<K, V>>.empty()) -> Node<Container<K, V>>.Lambda {
 	if (tail(head)) {
-		// TODO if we're already mapping to a different value, what do? Calling
-		// tail(head) will overwrite its value. V isn't Equatable so we can't
-		// compare that way.
-		
-		// Don't allow duplicate keys. Return early if we already find one.
+		// Don't allow duplicate keys. Return early if we already find one. This
+		// will also update an existing key/value pair if appropriate.
 		return tail
 	}
 	// If our parameter to find has the same key as this node, we set its value
@@ -45,8 +51,14 @@ func makeHashMapNode<K: Equatable, V>(_ head: Container<K, V>, tail: @escaping N
 	// to the tail to do work.
 	return { container in
 		if container == head {
-			// Now we need to return its value
-			container.value = head.value
+			// Now we either update or "return" a value.
+			if (container.value == nil) {
+				// Returning a value.
+				container.value = head.value
+			} else {
+				// Update our own value.
+				head.value = container.value
+			}
 			return true
 		}
 		return tail(container)
