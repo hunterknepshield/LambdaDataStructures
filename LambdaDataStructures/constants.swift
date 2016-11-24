@@ -16,22 +16,28 @@
 /// the index of an element in a list of Nodes or the size of a collection of
 /// Nodes.
 struct Node<T: Equatable> {
-	typealias Lambda = (T) -> Bool
+	/// The function that actually does work. Returns true if this Node contains
+	/// the supplied value or if any linked Nodes further down the chain do.
+	typealias Node = (T) -> Bool
 	
-	/// The empty node always returns false, no matter the input.
-	static func empty() -> Lambda {
-		return { t in
+	/// The empty node, which always returns false, no matter the input. Has to
+	/// be a function because generics can't be stored in static properties.
+	static func `nil`() -> Node {
+		return { _ in
 			return false
 		}
 	}
 }
+
+let x = Node<String>.nil()
+
 
 /// The typical elements all example collections are comprised of.
 let kElements = ["foo", "bar", "baz"]
 
 /// Asserts that all elements are in the given collection. Causes a runtime
 /// failure if that isn't the case.
-func testCollection<T: Equatable>(_ beginning: Node<T>.Lambda, elements: [T]) {
+func testCollection<T: Equatable>(_ beginning: Node<T>.Node, elements: [T]) {
 	for element in elements {
 		assert(beginning(element))
 	}

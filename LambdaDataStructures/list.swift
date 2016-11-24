@@ -14,7 +14,7 @@
 ///
 /// This mirrors Lisp's operations:
 /// (cons a (cons b (cons c nil)))
-func makeListNode<T: Equatable>(_ head: T, tail: @escaping Node<T>.Lambda = Node<T>.empty()) -> Node<T>.Lambda {
+func makeListNode<T: Equatable>(_ head: T, tail: @escaping Node<T>.Node = Node<T>.nil()) -> Node<T>.Node {
 	return { t in
 		t == head || tail(t)
 	}
