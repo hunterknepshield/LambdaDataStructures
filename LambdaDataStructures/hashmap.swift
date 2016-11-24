@@ -8,7 +8,7 @@
 
 /// Deliberately a reference type so its value can be changed - this is
 /// important, as it allows lookup functionality.
-class Entry<K: Equatable, V>: Equatable {
+class Entry<K: Equatable, V> {
 	public let key: K?
 	public var value: V?
 	
@@ -18,9 +18,11 @@ class Entry<K: Equatable, V>: Equatable {
 	}
 }
 
-/// To satisfy Equatable, required by Node's type parameter.
-func ==<K: Equatable, V>(lhs: Entry<K, V>, rhs: Entry<K, V>) -> Bool {
-	return lhs.key == rhs.key
+/// Required by Node's type parameter.
+extension Entry: Equatable {
+	static func ==(lhs: Entry<K, V>, rhs: Entry<K, V>) -> Bool {
+		return lhs.key == rhs.key
+	}
 }
 
 /// See makeHashMapNode(head:Entry, tail: Node.Node).
